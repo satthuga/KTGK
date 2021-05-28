@@ -113,7 +113,7 @@ func checkDate() {
             return
         }
 
-        if checkYear(year) {
+        if checkYear(year) == true {
             print("tháng có 29 ngày")
             if day == 29 {
                 print("liền trước \(1) / \(3) / \(year)")
@@ -230,3 +230,31 @@ func randomGame() {
 }
 
 randomGame()
+
+
+//MARK: Bai 4
+func luyThua(_ n : Int, _ x: Int) -> Int {
+    var tich = 1
+    for _ in 1...x {
+        tich = tich * n
+    }
+    return tich
+    
+}
+
+func checkAmstrong(_ n: Int) -> Bool {
+  
+    let strN = String(n)
+    var sum = 0
+    for i in strN {
+    sum = sum + luyThua((Int(String(i))!), strN.count)
+    }
+    return sum == n ? true : false
+}
+
+for i in 1...1000 {
+    if checkAmstrong(i) == true {
+        print(i)
+    }
+}
+
